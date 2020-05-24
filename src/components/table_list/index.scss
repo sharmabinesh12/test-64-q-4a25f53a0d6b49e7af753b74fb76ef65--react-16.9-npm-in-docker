@@ -1,0 +1,62 @@
+
+
+@mixin btn-common {
+	width: 110px;
+	height: 30px;
+	background-color: #000;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+}
+.lead-container {
+	padding: 50px;
+	background-color: #f6f6f6;
+	margin:auto;
+	text-align: center;
+	width: 100%;
+	height: 100vh;
+	overflow-y: auto;
+	.add_lead_modal {
+		display: flex;
+		justify-content: flex-start;
+		margin:20px 0;
+		.add_lead_modal_btn {
+			@include btn-common;
+			height: 35px;
+		}
+	}
+
+	table, th, td {
+		border: 1px solid #ddd;
+		border-collapse: collapse;
+	}
+	.leads_table {
+		width: 100%;
+		margin: auto;	
+		tr {
+			height: 36px;
+			th {
+				background-color: #000;
+				color:#fff;
+			}
+			td,th {
+				// min-width: 280px;				
+				.action-box {
+					display: flex;
+					justify-content:center;
+					align-items: center;
+					.update_lead_modal_btn {
+						@include btn-common;
+					}
+					.delete_lead_modal_btn {
+						@include btn-common;
+						width: 90px;
+						margin-left: 5px;
+					}
+				}
+			
+			}
+			
+		}	
+	}
+}
