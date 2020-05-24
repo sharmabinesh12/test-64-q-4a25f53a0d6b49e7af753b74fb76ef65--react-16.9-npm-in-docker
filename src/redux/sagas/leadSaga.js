@@ -26,9 +26,10 @@ const postData = async (url, payload) =>
 const deleteData = async (url) =>
 	await dataAccess.del(url);
 
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export function* getLeadsList(param) {
-	let url = `http://18.209.209.196:4059/api/leads/`
+	let url = `${BASE_URL}/api/leads/`
 	try {
 		const response = yield call(fetchData, url);
 		yield put(getLeadsListSuccess(response));
@@ -40,7 +41,7 @@ export function* getLeadsList(param) {
 }
 
 export function* addLead(param) {
-	let url = `http://18.209.209.196:4059/api/leads/`
+	let url = `${BASE_URL}/api/leads/`
 	try {
 		const response = yield call(postData, url, param.payload);
 		yield put(updateLeadSuccess(response));
@@ -54,7 +55,7 @@ export function* addLead(param) {
 }
 
 export function* deleteLead(param) {
-	let url = `http://18.209.209.196:4059/api/leads/${param.payload.id}`
+	let url = `${BASE_URL}/api/leads/${param.payload.id}`
 	try {
 		const response = yield call(deleteData, url);
 		yield put(deleteLeadSuccess(response));
@@ -67,7 +68,7 @@ export function* deleteLead(param) {
 	}
 }
 export function* updateLead(param) {
-	let url = `http://18.209.209.196:4059/api/mark_lead/${param.payload.id}`
+	let url = `${BASE_URL}/api/mark_lead/${param.payload.id}`
 	
 	let payload = {
     "communication": param.payload.communication
